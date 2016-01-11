@@ -42,7 +42,7 @@ namespace ConsoleApplication1
 
             if (results.Count != 0)
             {
-                var compositeResults = new CompositeValidationResult(String.Format("Validation for {0} failed!", validationContext.DisplayName));
+                var compositeResults = new CompositeValidationResult(String.Format("Validation pour {0} a echoué!", validationContext.DisplayName));
                 results.ForEach(compositeResults.AddResult);
 
                 return compositeResults;
