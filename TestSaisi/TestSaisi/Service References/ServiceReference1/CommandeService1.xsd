@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CrudCommande" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CrudCommande" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCommande">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Commande" nillable="true" type="tns:Commande" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommande" nillable="true" type="tns:ArrayOfCommande" />
+  <xs:complexType name="Commande">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateCommande" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdDonneurOrdre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LigneCommandes" nillable="true" type="tns:ArrayOfLigneCommande" />
+      <xs:element minOccurs="0" name="StatutCommande" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Commande" nillable="true" type="tns:Commande" />
+  <xs:complexType name="ArrayOfLigneCommande">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LigneCommande" nillable="true" type="tns:LigneCommande" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLigneCommande" nillable="true" type="tns:ArrayOfLigneCommande" />
+  <xs:complexType name="LigneCommande">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Commande" nillable="true" type="tns:Commande" />
+      <xs:element minOccurs="0" name="IdCommande" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IdLigneCommande" type="xs:int" />
+      <xs:element minOccurs="0" name="IdProduit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrixHT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Qte" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LigneCommande" nillable="true" type="tns:LigneCommande" />
+</xs:schema>
